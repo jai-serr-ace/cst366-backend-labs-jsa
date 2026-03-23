@@ -1,0 +1,13 @@
+<script>
+    function randomImg(){
+        let url = "https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&per_page=50&orientation=horizontal&q=solar%20system";
+        fetch(url)
+        .then(response => response.json())
+        let randomNum = Math.floor(Math.random() * response.hits.length);
+        let source = response.hits[randomNum].webformatURL;
+        console.log(source);
+        const img = document.createElement('img');
+        img.src = source;
+        document.getElementById('randomImg').appendChild(img);
+    }
+</script>

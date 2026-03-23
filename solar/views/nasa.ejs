@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("partials/head.ejs") %>
+</head>
+<body>
+    <h1 class="bg-info text-white p-3 m-0 page-title hero-header"> The Solar System </h1>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <%- include("partials/nav.ejs") %>
+    </nav>
+    <h2 class="section-title">NASA Picture of the Day</h2>
+    <img class="content-image" src="<%= source %>" alt="NASA astronomy picture of the day">
+</body>
+</html>
