@@ -1,0 +1,135 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+	min-height: 100vh;
+	color: #ffffff;
+	background-color: #1f2933;
+	background-image: url("https://wallpaperaccess.com/full/1190142.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.page-shell {
+	max-width: 760px;
+	margin: 2.5rem auto;
+	padding: 1.25rem;
+	border-radius: 14px;
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.site-header {
+	margin-bottom: 1rem;
+	padding-bottom: 0.9rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.site-brand {
+	display: inline-block;
+	color: #fde68a;
+	font-size: 1.9rem;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.site-tagline {
+	margin: 0.35rem 0 0;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.site-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	margin-top: 0.85rem;
+}
+
+.site-nav a {
+	padding: 0.45rem 0.7rem;
+	border-radius: 7px;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 0.92rem;
+	color: #fff7d6;
+	background: rgba(245, 158, 11, 0.22);
+	border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+.site-nav a:hover {
+	background: rgba(245, 158, 11, 0.35);
+}
+
+.search-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.search-form + .search-form {
+	margin-top: 0.8rem;
+}
+
+input {
+	flex: 1 1 250px;
+	padding: 0.6rem 0.75rem;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 8px;
+	color: #111827;
+}
+
+button {
+	border: 0;
+	border-radius: 8px;
+	padding: 0.62rem 0.95rem;
+	background: #f59e0b;
+	color: #111827;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+button:hover {
+	filter: brightness(0.95);
+}
+
+.cat-image {
+	display: block;
+	width: min(100%, 580px);
+	border-radius: 12px;
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	margin-top: 1rem;
+}
+
+.site-footer {
+	margin-top: 1.25rem;
+	padding-top: 0.9rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	text-align: center;
+}
+
+.footer-note {
+	margin: 0.65rem 0 0;
+	font-size: 0.92rem;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.back-link {
+	display: block;
+	width: fit-content;
+	margin: 0 auto;
+	padding: 0.62rem 0.95rem;
+	border-radius: 8px;
+	background: #f59e0b;
+	color: #111827;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.back-link:hover {
+	filter: brightness(0.95);
+}

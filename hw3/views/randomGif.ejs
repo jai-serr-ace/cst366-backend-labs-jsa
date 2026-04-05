@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCats</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+    <main class="page-shell">
+        <%- include('partials/header.ejs') %>
+        <h1>A Random Cat GIF</h1>
+        <p>Here is a random cat GIF for you:</p>
+        <img src="<%= catImageUrl %>" alt="Random Cat GIF" class="cat-image">
+        <%- include('partials/footer.ejs', { showBackHome: true }) %>
+    </main>
+</body>
+</html>

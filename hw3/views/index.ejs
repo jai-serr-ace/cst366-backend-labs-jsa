@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCats</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+    <main class="page-shell">
+        <%- include('partials/header.ejs') %>
+        <h1>Welcome</h1>
+
+        <p id="tag-search">Enter some tags to search for cats</p>
+        <form action="/searchResults" method="GET" class="search-form">
+            <input type="text" name="ctags" placeholder="Enter tags (comma separated)">
+            <button type="submit">Fetch Cat Image</button>
+        </form>
+
+        <form action="/textImage" method="GET" class="search-form" id="text-search">
+            <input type="text" name="ctext" placeholder="Write some text to see a cat with that message" required>
+            <button type="submit">Fetch Text Cat Image</button>
+        </form>
+
+        <form action="/randomGif" method="GET">
+            <button type="submit">Fetch a Random Cat GIF</button>
+        </form>
+
+        <img src="<%= catImageUrl %>" alt="Cute Cat" class="cat-image">
+        <%- include('partials/footer.ejs', { showBackHome: false }) %>
+    </main>
+</body>
+</html>
