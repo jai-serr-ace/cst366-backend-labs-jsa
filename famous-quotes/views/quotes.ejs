@@ -11,7 +11,7 @@
     <h1 class="title-like">Quotes matching your keyword or category</h1>
     <ul>
         <% rows.forEach(row => { %>
-            <li class="quote"><%= row.quote %> - <%= row.firstName %> <%= row.lastName %></li>
+            <li class="quote"><%= row.quote %> - <a href="/author?authorId=<%= row.authorId %>"><%= row.firstName %> <%= row.lastName %></a></li>
         <% }) %>
     </ul>
     <%- include("partials/footer.ejs") %>

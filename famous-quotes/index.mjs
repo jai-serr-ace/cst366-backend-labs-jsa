@@ -17,11 +17,18 @@ const pool = mysql.createPool({
 //routes
 app.get('/', async (req, res) => {
 //    res.render('home');
-let sql = `SELECT authorId, firstName, lastName
-              FROM authors
-              ORDER BY lastName`;
-   const [authors] = await pool.query(sql);              
-   res.render('home.ejs', {authors})
+let authorSql = `SELECT authorId, firstName, lastName
+                  FROM authors
+                  ORDER BY lastName`;
+let categorySql = `SELECT DISTINCT category
+                         FROM quotes
+                         WHERE category IS NOT NULL
+                         ORDER BY category`;
+    const [[authors], [categories]] = await Promise.all([
+        pool.query(authorSql),
+        pool.query(categorySql)
+    ]);
+    res.render('home.ejs', {authors, categories})
 });
 app.get("/dbTest", async(req, res) => {
    try {
@@ -36,7 +43,7 @@ app.get("/dbTest", async(req, res) => {
 app.get("/searchByKeyword", async(req, res) => {
    try {
         let keyword = req.query.keyword;
-    let sql = `SELECT quote, firstName, lastname AS lastName
+    let sql = `SELECT quote, authorId, firstName, lastname AS lastName
                    FROM quotes
                    NATURAL JOIN authors
             WHERE quote LIKE ?`; 
@@ -53,7 +60,7 @@ app.get("/searchByKeyword", async(req, res) => {
 app.get("/searchByAuthor", async(req, res) => {
    try {
         let author = req.query.author;
-    let sql = `SELECT quote, firstName, lastname AS lastName
+    let sql = `SELECT quote, authorId, firstName, lastname AS lastName
                    FROM quotes
                    NATURAL JOIN authors
            WHERE CONCAT(firstName, ' ', lastName) LIKE ?`;
@@ -70,7 +77,7 @@ app.get("/searchByAuthor", async(req, res) => {
 app.get("/searchByCategory", async(req, res) => {
    try {
         let category = req.query.category;
-        let sql = `SELECT DISTINCT quote, firstName, lastname AS lastName, category
+    let sql = `SELECT DISTINCT quote, authorId, firstName, lastname AS lastName, category
                    FROM quotes
                    NATURAL JOIN authors
                    WHERE category LIKE ?`; 
@@ -94,6 +101,21 @@ app.get("/searchByLikes", async(req, res) => {
         let sqlParams = [likeStart, likeEnd];
         const [rows] = await pool.query(sql, sqlParams);
         res.render('searchByLikes.ejs', {rows});
+
+    } catch (err) {
+        console.error("Database error:", err);
+        res.status(500).send("Database error!");
+    }
+});//dbTest
+
+app.get("/author", async(req, res) => {
+   try {
+    let authorId = Number.parseInt(req.query.authorId, 10) || 1;
+        let sql = `SELECT * FROM authors WHERE authorId = ?`;
+        let sqlParams = [authorId];
+        const [resultRows] = await pool.query(sql, sqlParams);
+        const rows = resultRows[0] || null;
+        res.render('author.ejs', {rows});
 
     } catch (err) {
         console.error("Database error:", err);

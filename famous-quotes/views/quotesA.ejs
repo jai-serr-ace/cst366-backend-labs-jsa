@@ -8,7 +8,14 @@
      <%- include("partials/header.ejs") %>
 </head>
 <body>
-    <h1 class="title-like">Quotes by <%= rows.length ? `${rows[0].firstName} ${rows[0].lastName}` : "Selected Author" %></h1>
+    <h1 class="title-like">
+        Quotes by
+        <% if (rows.length) { %>
+            <a href="/author?authorId=<%= rows[0].authorId %>"><%= rows[0].firstName %> <%= rows[0].lastName %></a>
+        <% } else { %>
+            Selected Author
+        <% } %>
+    </h1>
     <ul>
         <% rows.forEach(row => { %>
             <li class="quote"><%= row.quote %> - <%= row.firstName %> <%= row.lastName %></li>

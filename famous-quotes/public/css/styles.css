@@ -13,13 +13,53 @@ nav a {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0 16px 30px;
     text-align: center;
     background-image: url("https://wallpapercave.com/wp/wp14624084.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color: #111;
+}
+
+h1 {
+    margin: 30px auto 12px;
+    padding: 10px 14px;
+    width: fit-content;
+    max-width: 92%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #1f1f1f;
+    border-radius: 10px;
+}
+
+body > p {
+    margin: 12px auto;
+    max-width: 780px;
+    padding: 12px 14px;
+    line-height: 1.45;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+form {
+    width: min(620px, 92%);
+    margin: 12px auto;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    height: 32px;
+    border: 1px solid #8e8e8e;
+    border-radius: 6px;
+    padding: 0 8px;
+    margin: 0 6px;
 }
 
 .quote {
@@ -34,9 +74,36 @@ body {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 5px 5px;
+    padding: 8px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    border-color: #333 ;
+    border: 1px solid #2d7c31;
+    font-weight: 600;
+}
+
+button:hover {
+    filter: brightness(1.05);
+}
+
+.author-portrait {
+    display: block;
+    margin: 18px auto 12px;
+    max-width: 90%;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.author-name {
+    margin-top: 8px;
+}
+
+.author-detail {
+    width: min(760px, 92%);
+    text-align: left;
 }

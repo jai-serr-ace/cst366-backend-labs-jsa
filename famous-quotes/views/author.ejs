@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <%- include("partials/header.ejs") %>
+</head>
+<body>
+    <% if (rows) { %>
+        <% if (rows.portrait) { %>
+            <img class="author-portrait" src="<%= rows.portrait %>" alt="Author Image">
+        <% } %>
+        <h1 class="author-name"><%= rows.firstName %> <%= rows.lastName %></h1>
+        <p class="author-detail">Profession: <%= rows.profession %></p>
+        <p class="author-detail">Country: <%= rows.country %></p>
+        <p class="author-detail">Sex: <%= rows.sex === 'F' ? 'Female' : rows.sex === 'M' ? 'Male' : rows.sex %></p>
+        <p class="author-detail">Date of Birth: <%= rows.dob %></p>
+        <p class="author-detail">Date of Death: <%= rows.dod %></p>
+        <p class="author-detail">Biography: <%= rows.biography %></p>
+    <% } else { %>
+        <p>No author found.</p>
+    <% } %>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
